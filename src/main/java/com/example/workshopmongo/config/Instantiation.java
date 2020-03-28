@@ -41,6 +41,9 @@ public class Instantiation implements CommandLineRunner {
 		Post p2 = new Post(null, sdf.parse("23/03/2018"), "Arrumei um trampo", "java junior!",new AuthorDTO(gu));
 
 		postRepository.saveAll(Arrays.asList(p1,p2));
+		
+		gu.getPosts().addAll(Arrays.asList(p1,p2));
+		userRepository.save(gu);
 	}
 
 }
